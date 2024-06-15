@@ -4,7 +4,6 @@ services:
         image: realtradam/openrct2-docker:$$cap_version
         environment:
             RCT2MAP: '$$cap_rct2_map_path'
-            RCT2PORT: '$$cap_rct2_port'
         volumes:
             - '$$cap_appname-data:/home/openrct2/.config/OpenRCT2'
             - '$$cap_rct2_data_mount'
