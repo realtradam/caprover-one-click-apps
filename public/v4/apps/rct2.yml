@@ -5,7 +5,6 @@ services:
         environment:
             TZ: '$$cap_tz'
             PHP_TZ: '$$cap_tz'
-        entrypoint: "openrct2-cli host /home/openrct2/Parks/Bumbly\ Bazaar.SC6 --port 11753 --verbose"
         volumes:
             - '$$cap_appname-data:/home/openrct2/.config/OpenRCT2'
             - '/var/lib/docker/volumes/captain--next-data/_data/data/admin/files/Documents/rct2/openrct2/Scenarios/RCT2:/home/openrct2/Parks'
@@ -13,6 +12,7 @@ services:
             - 11753:11753
         caproverExtra:
             containerHttpPort: '11753'
+            dockerfileLines: ENTRYPOINT ["openrct2-cli", "host", "/home/openrct2/Parks/Bumbly Bazaar.SC6", "--port", "11753", "--verbose"]
 caproverOneClickApp:
     variables:
         - id: '$$cap_version'
