@@ -7,7 +7,7 @@ services:
             PHP_TZ: '$$cap_tz'
         command:
             - "host"
-            - "/home/openrct2/Parks/Bumbly Bazaar.SC6"
+            - "/home/openrct2/Parks/Bumbly\ Bazaar.SC6"
             - "--port 11753"
             - "--headless --verbose"
         volumes:
