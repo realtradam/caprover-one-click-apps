@@ -19,6 +19,10 @@ caproverOneClickApp:
           defaultValue: 'latest'
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/openrct2/openrct2-cli/tags
           validRegex: "/^([^\\s^\\/])+$/"
+        - id: '$$cap_rct2_map_path'
+          label: OpenRCT2 Map Path
+          defaultValue: '/home/openrct2/Parks/Bumbly Bazaar.SC6'
+          description: What map or save you want to load
         - id: '$$cap_tz'
           label: Time Zone
           defaultValue: America/New_York
@@ -30,6 +34,6 @@ caproverOneClickApp:
         end: |-
             OpenRCT2 has been successfully deployed!
     displayName: OpenRCT2
-    isOfficial: true
+    isOfficial: false
     description: Open source reimplementation of OpenRCT2, hosts multiplayer games.
     documentation: See https://github.com/OpenRCT2/openrct2-docker
