@@ -25,7 +25,7 @@ caproverOneClickApp:
           description: What map or save you want to load. Note that this docker file does not contain any maps so this default value wont work unless you provide the map.
         - id: '$$cap_rct2_data_mount'
           label: OpenRCT2 Data Mount
-          defaultValue: '/var/lib/docker/volumes/captain--next-data/_data/data/admin/files/Documents/rct2/openrct2/Scenarios/RCT2:/home/openrct2/mounted_data'
+          defaultValue: '/var/lib/docker/volumes/captain--next-data/_data/data/admin/files/Documents/rct2:/home/openrct2/mounted_data'
           description: What and where to mount RCT data. I set ip all my data on a next cloud instance and then mount it from there hence the default.
     instructions:
         start: |-
