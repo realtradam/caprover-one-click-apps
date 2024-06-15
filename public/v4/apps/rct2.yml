@@ -3,31 +3,30 @@ services:
     '$$cap_appname':
         image: realtradam/openrct2-docker:$$cap_version
         environment:
-            TZ: '$$cap_tz'
-            PHP_TZ: '$$cap_tz'
             RCT2MAP: '$$cap_rct2_map_path'
+            RCT2PORT: '$$cap_rct2_port'
         volumes:
             - '$$cap_appname-data:/home/openrct2/.config/OpenRCT2'
-            - '/var/lib/docker/volumes/captain--next-data/_data/data/admin/files/Documents/rct2/openrct2/Scenarios/RCT2:/home/openrct2/Parks'
+            - '$$cap_rct2_data_mount'
+            #- '/var/lib/docker/volumes/captain--next-data/_data/data/admin/files/Documents/rct2/openrct2/Scenarios/RCT2:/home/openrct2/Parks'
         ports:
             - 11753:11753
         caproverExtra:
-            containerHttpPort: '11753'
+          notExposeAsWebApp: 'true'
 caproverOneClickApp:
     variables:
         - id: '$$cap_version'
           label: OpenRCT2 Version
-          defaultValue: 'latest'
-          description: Check out their Docker page for the valid tags https://hub.docker.com/r/openrct2/openrct2-cli/tags
+          defaultValue: '0.4.11'
+          description: Check out the Docker page for the valid tags https://hub.docker.com/r/realtradam/openrct2-cli/tags
         - id: '$$cap_rct2_map_path'
           label: OpenRCT2 Map Path
-          defaultValue: '/home/openrct2/Parks/Bumbly Bazaar.SC6'
-          description: What map or save you want to load
-        - id: '$$cap_tz'
-          label: Time Zone
-          defaultValue: America/New_York
-          description: Get yours from https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-          validRegex: '/.{1,}/'
+          defaultValue: '/home/openrct2/mounted_data/openrct2/Scenarios/RCT2/Bumbly Bazaar.SC6'
+          description: What map or save you want to load. Note that this docker file does not contain any maps so this default value wont work unless you provide the map.
+        - id: '$$cap_rct2_data_mount'
+          label: OpenRCT2 Data Mount
+          defaultValue: '/var/lib/docker/volumes/captain--next-data/_data/data/admin/files/Documents/rct2/openrct2/Scenarios/RCT2:/home/openrct2/Parks'
+          description: What and where to mount RCT data. I set ip all my data on a next cloud instance and then mount it from there hence the default.
     instructions:
         start: |-
             Server for hosting OpenRCT2 games.
