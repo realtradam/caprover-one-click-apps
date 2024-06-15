@@ -5,6 +5,7 @@ services:
         environment:
             TZ: '$$cap_tz'
             PHP_TZ: '$$cap_tz'
+            RCT2MAP: '$$cap_rct2_map_path'
         volumes:
             - '$$cap_appname-data:/home/openrct2/.config/OpenRCT2'
             - '/var/lib/docker/volumes/captain--next-data/_data/data/admin/files/Documents/rct2/openrct2/Scenarios/RCT2:/home/openrct2/Parks'
