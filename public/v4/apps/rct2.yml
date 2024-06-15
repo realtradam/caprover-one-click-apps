@@ -5,8 +5,12 @@ services:
         environment:
             TZ: '$$cap_tz'
             PHP_TZ: '$$cap_tz'
+        command:
+            - "host"
         volumes:
             - '$$cap_appname-data:/home/openrct2/.config/OpenRCT2'
+        ports:
+            - 11753:11753
         caproverExtra:
             containerHttpPort: '11753'
 caproverOneClickApp:
