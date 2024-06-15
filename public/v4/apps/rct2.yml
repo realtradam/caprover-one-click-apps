@@ -19,10 +19,9 @@ caproverOneClickApp:
           label: OpenRCT2 Version
           defaultValue: 'latest'
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/openrct2/openrct2-cli/tags
-          validRegex: "/^([^\\s^\\/])+$/"
         - id: '$$cap_rct2_map_path'
           label: OpenRCT2 Map Path
-          defaultValue: '"/home/openrct2/Parks/Bumbly Bazaar.SC6"'
+          defaultValue: '/home/openrct2/Parks/Bumbly Bazaar.SC6'
           description: What map or save you want to load
         - id: '$$cap_tz'
           label: Time Zone
