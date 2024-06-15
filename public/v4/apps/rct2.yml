@@ -1,0 +1,32 @@
+captainVersion: 4
+services:
+    '$$cap_appname':
+        image: openrct2/openrct2-cli:$$cap_version
+        environment:
+            TZ: '$$cap_tz'
+            PHP_TZ: '$$cap_tz'
+        volumes:
+            - '$$cap_appname-data:/home/openrct2/.config/OpenRCT2'
+        caproverExtra:
+            containerHttpPort: '11753'
+caproverOneClickApp:
+    variables:
+        - id: '$$cap_version'
+          label: OpenRCT2 Version
+          defaultValue: '0.4.11'
+          description: Check out their Docker page for the valid tags https://hub.docker.com/r/openrct2/openrct2-cli/tags
+          validRegex: "/^([^\\s^\\/])+$/"
+        - id: '$$cap_tz'
+          label: Time Zone
+          defaultValue: America/New_York
+          description: Get yours from https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+          validRegex: '/.{1,}/'
+    instructions:
+        start: |-
+            Server for hosting OpenRCT2 games.
+        end: |-
+            OpenRCT2 has been successfully deployed!
+    displayName: OpenRCT2
+    isOfficial: true
+    description: Open source reimplementation of OpenRCT2, hosts multiplayer games.
+    documentation: See https://github.com/OpenRCT2/openrct2-docker
